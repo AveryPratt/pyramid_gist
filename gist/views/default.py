@@ -10,40 +10,40 @@ from ..models import MyModel
 def my_view_home(request):
     try:
         query = request.dbsession.query(MyModel)
-        one = query.filter(MyModel.name == 'one').first()
+        name = query.filter(MyModel.name == 'avery').first()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {}
+    return {'name': name}
 
 
 @view_config(route_name='login', renderer='../templates/login.jinja2')
 def my_view_edit(request):
     try:
         query = request.dbsession.query(MyModel)
-        one = query.filter(MyModel.name == 'one').first()
+        name = query.filter(MyModel.name == 'avery').first()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {}
+    return {'name': name}
 
 
 @view_config(route_name='edit', renderer='../templates/edit.jinja2')
 def my_view_login(request):
     try:
         query = request.dbsession.query(MyModel)
-        one = query.filter(MyModel.name == 'one').first()
+        name = query.filter(MyModel.name == 'avery').first()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {}
+    return {'name': name}
 
 
 @view_config(route_name='create', renderer='../templates/create.jinja2')
 def my_view_create(request):
     try:
         query = request.dbsession.query(MyModel)
-        one = query.filter(MyModel.name == 'one').first()
+        name = query.filter(MyModel.name == 'avery').first()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {}
+    return {'name': name}
 
 
 db_err_msg = """\

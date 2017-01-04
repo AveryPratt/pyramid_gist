@@ -12,6 +12,8 @@ class MyModel(Base):
     __tablename__ = 'models'
     id = Column(Integer, primary_key=True)
     name = Column(Text)
+    email = Column(Text)
+    food = Column(Text)
     value = Column(Integer)
 
 
