@@ -10,40 +10,56 @@ from ..models import MyModel
 def my_view_home(request):
     try:
         query = request.dbsession.query(MyModel)
-        name = query.filter(MyModel.name == 'avery').first()
+        one = query.filter(MyModel.name == 'one').first()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {'name': name}
+    return {
+        'name': one.name,
+        'email': one.email,
+        'food': one.food,
+    }
 
 
 @view_config(route_name='login', renderer='../templates/login.jinja2')
 def my_view_edit(request):
     try:
         query = request.dbsession.query(MyModel)
-        name = query.filter(MyModel.name == 'avery').first()
+        one = query.filter(MyModel.name == 'one').first()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {'name': name}
+    return {
+        'name': one.name,
+        'email': one.email,
+        'food': one.food,
+    }
 
 
 @view_config(route_name='edit', renderer='../templates/edit.jinja2')
 def my_view_login(request):
     try:
         query = request.dbsession.query(MyModel)
-        name = query.filter(MyModel.name == 'avery').first()
+        one = query.filter(MyModel.name == 'one').first()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {'name': name}
+    return {
+        'name': one.name,
+        'email': one.email,
+        'food': one.food,
+    }
 
 
 @view_config(route_name='create', renderer='../templates/create.jinja2')
 def my_view_create(request):
     try:
         query = request.dbsession.query(MyModel)
-        name = query.filter(MyModel.name == 'avery').first()
+        one = query.filter(MyModel.name == 'one').first()
     except DBAPIError:
         return Response(db_err_msg, content_type='text/plain', status=500)
-    return {'name': name}
+    return {
+        'name': one.name,
+        'email': one.email,
+        'food': one.food,
+    }
 
 
 db_err_msg = """\
